@@ -40,4 +40,7 @@ jspm_packages
 .idea
 
 # Specific to this Boilerplate
-build
+build/css
+build/img
+build/src
+build/*.html
