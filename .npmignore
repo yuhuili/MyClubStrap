@@ -1,0 +1,3 @@
+
+# Overrides the .gitignore so the npm package contains the build folder (for production builds to avoid all the dev deps)
+node_modules
