@@ -6,12 +6,21 @@ var path = require('path');
 var webpack = require('webpack');
 
 // To add a new entry point just add another to this list
-var entryPoints = ['./web/src/main.js'];
+var entryPoints = ['./web/src/main.js', './web/src/lol.js'];
+
+function getEntry() {
+  var entry = {};
+  for (var i = 0; i < entryPoints.length; i++) {
+    var name = path.basename(entryPoints[i], '.js');
+    entry[name] = entryPoints[i];
+  }
+  return entry;
+}
 
 function getConfig(debug) {
   return {
     context: __dirname,
-    entry: entryPoints,
+    entry: getEntry(),
     devtool: debug ? 'inline-source-map' : null,
     output: {
       path: path.join(__dirname, 'build/src'),
