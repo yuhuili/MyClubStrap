@@ -9,10 +9,19 @@ var webpack = require('webpack');
 var entryPoints = ['./web/src/main.js','./web/src/login.js'];
 
 
+function getEntry() {
+  var entry = {};
+  for (var i = 0; i < entryPoints.length; i++) {
+    var name = path.basename(entryPoints[i], '.js');
+    entry[name] = entryPoints[i];
+  }
+  return entry;
+}
+
 function getConfig(debug) {
   return {
     context: __dirname,
-    entry: entryPoints,
+    entry: getEntry(),
     devtool: debug ? 'inline-source-map' : null,
     output: {
       path: path.join(__dirname, 'build/src'),
