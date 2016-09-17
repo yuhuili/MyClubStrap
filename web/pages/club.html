@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTN Club</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/carousel.css" />
+  <link rel="stylesheet" href="/css/club.css" />
+  <link rel="stylesheet" href="/css/simple-sidebar.css" />
+  <script>
+    var mapLat, mapLng, mapZoom, mapLocTitle="";
+    var mapLoaded = false;
+  </script>
+</head>
+  <body>
+  
+    <div class="navbar-wrapper">
+      <div class="container">
+  
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">UWaterloo Clubs</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="clubs.html">Clubs</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="hidden"><a id="profile-link" href="profile.html"><img width="25px" height="25px" src="/img/profile-default.svg"><span>Welcome Gabriel!</span></a></li>
+                <li class="hidden"><a id="sign-out" href="#">Sign Out</a></li>
+                <li id="sign-in-reg"><a href="LoginPage.html">Sign In / Register</a></li>
+              </ul>
+              <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">UW Links <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="https://uwaterloo.ca">University of Waterloo</a></li>
+                    <li><a href="http://feds.ca">Feds</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+    
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <div class="image-holder" style="background-image: url(img/c1.jpg)"></div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Hack the North Club</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis finibus mi, non dignissim ex. Suspendisse feugiat rutrum nunc.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button" data-toggle="modal" data-target="#signupModal">Join</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="image-holder" style="background-image: url(img/c2.jpg)"></div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Engineering 5</h1>
+              <p>Hack the North has already started in E5 at University of Waterloo!</p>
+              <p><a class="btn btn-lg btn-primary" href="http://maps.google.com/?q=Engineering%205%20University%20Of%20Waterloo" role="button" target="_blank">See map</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+    
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container">
+      <section class="club-section">
+        <div class="row" style="font-size:1.2em">
+          <h2>Hack the North Club</h2>
+          <p><span class="club-short-info club-leader">John Doe</span><span class="club-short-info club-members">519 Members</span><span class="club-short-info club-location">Everywhere</span><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Join</a></p>
+          <hr>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis finibus mi, non dignissim ex. Suspendisse feugiat rutrum nunc, et tincidunt sapien condimentum ac. Morbi ut tortor at mi tincidunt pulvinar. Etiam pellentesque blandit luctus. Proin consequat orci id feugiat mollis. Sed ut purus odio. Sed eget erat a velit imperdiet luctus. Aliquam tempor et lacus iaculis pretium. Aenean a lectus pretium, venenatis diam non, dignissim sapien. Mauris laoreet porttitor pretium. Morbi venenatis vulputate nisi sit amet sodales. Integer sed lacus non ligula placerat maximus quis eu metus. Curabitur nec ultrices nunc. Vestibulum id fringilla orci, sed maximus nibh. Suspendisse laoreet suscipit quam non sodales.<br>
+  Donec velit eros, aliquam vitae massa vitae, dapibus hendrerit sem. Fusce sagittis ultrices eros, eleifend consectetur elit luctus eu. Fusce id felis rhoncus, elementum lectus sed, sagittis risus. Donec vitae mauris ut libero mattis pellentesque sed sed leo. Ut blandit sapien id tellus efficitur hendrerit. Suspendisse sollicitudin egestas lacus eget luctus. Cras eu mauris consectetur, congue erat sed, pharetra erat. Phasellus pellentesque sapien lorem, sed mollis erat bibendum vitae. Donec in turpis eget urna porta pellentesque sed rutrum augue. Curabitur volutpat tempus sem quis iaculis. Suspendisse vestibulum justo elit, vel placerat ligula laoreet ut. Integer tristique eros commodo ex tincidunt, eu egestas est condimentum. Proin mollis condimentum tempus. Quisque vel dui semper, tristique elit sit amet, rhoncus sapien. In hac habitasse platea dictumst. In sit amet auctor nunc.</p>
+        </div>
+        <div class="row" style="font-size:1.2em">
+          <h3>Events</h3>
+          <hr>
+          <div class="event">
+            <div class="club-row"><span class="title">Hack the North 2016</span><a href="#" class="show-map" style="width:20px;height:20px; display:inline-block; margin-left:10px; background-image:url('/img/marker.png'); background-size:contain; background-position:left top; background-repeat:no-repeat; cursor:pointer" data-lat="43.472975" data-lng="-80.540050" data-zoom="17" data-title="Hack the North 2016"></a></div>
+            <div class="club-row"><span class="date">September 16-18, 2016</span><span class="location">Engineering 5 at University of Waterloo</span></div>
+          </div>
+        </div>
+  
+      </section>
+        <!-- FOOTER -->
+        <footer>
+          <p class="pull-right"><a href="#">Back to top</a></p>
+          <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+      
+    </div><!-- /.container -->
+    
+    <div id="signupModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Club President's Message</h4>
+          </div>
+          <div class="modal-body">
+            <p>Hack the North is the biggest Canadian hackathon. Admission to Hack the North is completely free! Wanna learn more about hackathons or just coding? Join today!</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Join</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    <div id="mapModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+            <script>
+            function initMap() {
+              mapLoaded = true;
+              
+              if (mapLat == null) return;
+              
+              console.log("Loading google maps at "+mapLat+" by "+mapLng);
+              
+              var myPos = {lat: parseFloat(mapLat), lng: parseFloat(mapLng)};
+              
+              var mapDiv = document.getElementById('map');
+              var map = new google.maps.Map(mapDiv, {
+                  center: myPos,
+                  zoom: parseFloat(mapZoom)
+              });
+              
+              var marker = new google.maps.Marker({
+                position: myPos,
+                map: map,
+                title: mapLocTitle
+              });
+            }
+            </script>
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpUXmINxGOgj9LHYfwxASzTEsnRDxRiR4&callback=initMap">
+            </script>
+            <div id="map" style="width:100%; height:400px"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+      
+    <script src="/src/main.js"></script>
+    <script src="/src/club.js"></script>
+  </body>
+</html>
