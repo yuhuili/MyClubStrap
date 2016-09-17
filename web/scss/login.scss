@@ -6,8 +6,10 @@ body {
   background-image: url("/img/campus.jpg");
   background-position: center;
   position: fixed;
-  margin-left: 10%;
-
+  width: 100%;
+}
+.container{
+  margin:0 auto;
 }
 .panel-login {
   border-color: #ccc;
