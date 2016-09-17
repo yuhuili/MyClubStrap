@@ -6,6 +6,21 @@ global.jQuery = $ = require('jquery');
 
 global.bootstrap = require('bootstrap');
 
+var firebase = require('./init/firebase');
+
+var db = firebase.database();
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (!user) {
+    return;
+  }
+  if (!user.emailVerified) {
+    $('#verify-email-panel').toggleClass('hidden');
+    $('#login-panel').toggleClass('hidden');
+  } else {
+    window.location.replace('/');
+  }
+});
 
 $(function() {
 
@@ -28,12 +43,57 @@ $(function() {
     const email = $('#login-email').val();
     const password = $('#login-password').val();
 
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .catch(function(error) {
+        $('#login-tip').html(error.message);
+      });
+
   });
 
   $('#register-submit').click(function() {
-      const email = $('#reg-email').val();
-      const password = $('#reg-password').val();
-      const displayName = $('#reg-display-name').val();
+    const email = $('#reg-school-email').val();
+    const password = $('#reg-password').val();
+    const confirmPass = $('#reg-confirm-password').val();
+    const prefEmail = $('#reg-pref-email').val();
+
+    const firstName = $('#reg-first-name').val();
+    const lastName = $('#reg-last-name').val();
+
+    var regTip = $('#register-tip');
+    regTip.html('');
+
+    if (email.trim() == '') {
+      regTip.html('Please provide your school email before registering.');
+      return;
+    }
+
+    if (firstName.trim() == '' || lastName.trim() == '') {
+      regTip.html('Please provide your full name');
+      return;
+    }
+
+    if (password != confirmPass) {
+      regTip.html("The two passwords don't match.");
+      return;
+    }
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .catch(function(error) {
+        regTip.html(error.message);
+      })
+      .then(function(user) {
+        db.ref('/users/' + user.uid + '/private').set({
+          preferredEmail: prefEmail,
+          schoolEmail: email
+        });
+        db.ref('/users/' + user.uid + '/public').set({
+          clubs: null,
+          firstName: firstName.trim(),
+          lastName: lastName.trim()
+        });
+        regTip.html('A verification email has been sent to your school email!');
+        user.sendEmailVerification();
+      });
 
   });
 

@@ -44,3 +44,6 @@ build/css
 build/img
 build/src
 build/*.html
+
+# Firebase Token Redaction
+web/src/init/firebase.js
