@@ -10,7 +10,11 @@ var firebase = require('./init/firebase');
 $(function() {
   $('#sign-out').click(function() {
     firebase.auth().signOut();
-  })
+  });
+
+  $('#view-all-clubs').click(function() {
+    window.location.replace('/Directory.html');
+  });
 });
 
 firebase.auth().onAuthStateChanged(function(user) {
