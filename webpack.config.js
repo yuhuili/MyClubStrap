@@ -6,7 +6,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 // To add a new entry point just add another to this list
-var entryPoints = ['./web/src/main.js', './web/src/lol.js'];
+var entryPoints = ['./web/src/main.js'];
 
 function getEntry() {
   var entry = {};
