@@ -12,7 +12,8 @@ var db = firebase.database();
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (!user) {
-    return;
+    $('#verify-email-panel').addClass('hidden');
+    $('#login-panel').removeClass('hidden');
   }
   if (!user.emailVerified) {
     $('#verify-email-panel').toggleClass('hidden');
@@ -95,6 +96,10 @@ $(function() {
         user.sendEmailVerification();
       });
 
+  });
+
+  $('#sign-out').click(function() {
+    firebase.auth().signOut();
   });
 
 });
