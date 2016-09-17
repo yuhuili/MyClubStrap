@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HTN</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/carousel.css" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTN</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/carousel.css" />
+  <link rel="stylesheet" href="/css/simple-sidebar.css" />
 </head>
-<body>
+  <body>
+  
     <div class="navbar-wrapper">
       <div class="container">
-
+  
         <nav class="navbar navbar-inverse navbar-static-top">
           <div class="container">
             <div class="navbar-header">
@@ -29,12 +31,15 @@
                 <li><a href="clubs.html">Clubs</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="about.html">About</a></li>
+                <li class="hidden"><a id="profile-link" href="profile.html"><img width="25px" height="25px" src="/img/profile-default.svg"><span>Welcome Gabriel!</span></a></li>
+                <li class="hidden"><a id="sign-out" href="#">Sign Out</a></li>
+                <li id="sign-in-reg"><a href="LoginPage.html">Sign In / Register</a></li>
               </ul>
               <ul class="nav navbar-nav pull-right">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">UW Links <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="https://uwaterloo.ca">Universit of Waterloo</a></li>
+                    <li><a href="https://uwaterloo.ca">University of Waterloo</a></li>
                     <li><a href="http://feds.ca">Feds</a></li>
                   </ul>
                 </li>
@@ -45,8 +50,7 @@
 
       </div>
     </div>
-
-
+    
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -97,53 +101,48 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
-
-
+    
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/index4.jpg" alt="Generic placeholder image" width="140" height="140">
-          <h2>Events</h2>
-          <p>Discover the latest events hosted by various clubs. Register early to save a seat.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/index5.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Sponsors</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/index6.jpg" alt="Generic placeholder image" width="140" height="140">
-          <h2>Fundings</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-
+  
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img class="img-circle" src="img/index4.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>Events</h2>
+            <p>Discover the latest events hosted by various clubs. Register early to save a seat.</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="img-circle" src="img/index5.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Sponsors</h2>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="img-circle" src="img/index6.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>Fundings</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+  
+  
+        
+        <!-- /END THE FEATURETTES -->
+  
+  
+        <!-- FOOTER -->
+        <footer>
+          <p class="pull-right"><a href="#">Back to top</a></p>
+          <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+  
+      </div><!-- /.container -->
       
-      <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
-    </div><!-- /.container -->
-
     <script src="/src/main.js"></script>
   </body>
-<body>
-    
-    
-</body>
 </html>

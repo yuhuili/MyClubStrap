@@ -1,43 +1,29 @@
 body{
   color: #5a5a5a;
-  padding-top: 40px;
+  padding-top: 2.5em;
 }
 
-.media-object {
-  width: 120px;
-  height: 120px;
+.img-circle {
+  width: 7.5em;
+  height: 7.5em;
 }
 
 .media {
-  margin-bottom: 20px;
-  margin-top: 20px;
-  font-size: 21px;
+  margin-bottom: 1.25em;
+  margin-top: 1.25em;
+  font-size: 0.938em;
   display: block;
-  height: 140px;
-  width: 70%;
-  border-bottom: 5px solid #c9c6c6;
-  border-top: 5px solid #c9c6c6;
-  border-right: 5px solid #c9c6c6;
-  border-left: 5px solid #c9c6c6;
+  height: 9em;
+  width: 80em;
+  border-bottom: 0.313em solid #c9c6c6;
+  border-top: 0.313em solid #c9c6c6;
+  border-right: 0.313em solid #c9c6c6;
+  border-left: 0.313em solid #c9c6c6;
   z-index: 99;
   background-color: whitesmoke;
+  padding: 0.625em;
 }
-.extra {
-  display: block;
-  margin-top: -480px;
-  border-bottom: 5px solid #c9c6c6;
-  border-top: 5px solid #c9c6c6;
-  border-left: 5px solid #c9c6c6;
-  border-right: 5px solid #c9c6c6;
-  z-index: 99;
-  width: 20%;
-  height: 400px;
-  background-color: whitesmoke;
-  float: right;
-}
-
-.btn-primary {
-  margin-top: 80px;
-  margin-bottom: 30px;
-  cursor: hand;
+.media-heading {
+  position : relative;
+  margin-right: 11.25em;
 }
