@@ -60,6 +60,13 @@ body {
   height: 500px;
 }
 
+.carousel-inner > .item > .image-holder {
+  width:100%;
+  height:100%;
+  background-position:center center;
+  background-size:cover;
+}
+
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

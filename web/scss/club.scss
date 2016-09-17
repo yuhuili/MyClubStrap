@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* CSS Document */
+.club-section {
+  padding: 1.5em 4em 3em 4em;
+  background: #FDFDFD;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.club-section hr {
+  margin-top: 0;
+  border-top: 1.5px solid #e0e0e0;
+}
+
+.club-section:last-of-type {
+  margin-bottom:45px;
+}
+
+.club-short-info {
+  margin-right:30px;
+  background-position:left top;
+  background-size:contain;
+  background-repeat:no-repeat;
+  padding-left:1.5em;
+  font-size:0.9em;
+  color: #009be3;
+}
+
+.club-short-info.club-leader {
+  background-image: url('/img/admin.png');
+}
+
+.club-short-info.club-members {
+  background-image: url('/img/members.png');
+}
+
+.club-short-info.club-location {
+  background-image: url('/img/marker.png');
+}
+
+.club-section .event {
+  width: auto;
+}
+
+.club-section .event .club-row {
+  width: auto;
+}
+
+.club-section .event .title {
+  font-weight:600;
+}
+
+.club-section .event .location {
+  font-size: 0.8em;
+}
+
+.club-section .event .date {
+  font-size: 0.8em;
+  margin-right:10px;
+}
