@@ -11,10 +11,16 @@ body{
     linear-gradient(
       rgba(255, 255, 255, 0.45), 
       rgba(255, 255, 255, 0.45)
-    ),url('/img/uw.jpg');
+    ), url('/img/uw.jpg');
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
+
+}
+
+#loading {
+  display: block;
+  text-align: center;
 }
 
 .profile-section {
