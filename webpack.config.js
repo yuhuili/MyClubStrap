@@ -14,6 +14,7 @@ var entryPoints = [
   './web/src/club.js',
   './web/src/about.js',
   './web/src/profile.js',
+  './web/src/approve.js'
   ];
 
 function getEntry() {

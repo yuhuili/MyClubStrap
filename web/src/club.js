@@ -76,6 +76,32 @@ function renderSnapshot(snap) {
 
   $('#club-long-desc').html(pageData.longDesc);
 
+  var counter = 0;
+  for (var key in clubData.clubMembers) {
+    if (clubData.clubMembers.hasOwnProperty(key)) {
+      counter++;
+    }
+  }
+
+  var adminUid = undefined;
+  for (key in clubData.clubAdmins) {
+    if (clubData.clubAdmins.hasOwnProperty(key)) {
+      adminUid = key;
+      break;
+    }
+  }
+
+  if (adminUid) {
+    // Get the admin's name
+    db.ref('/users/' + adminUid).once('value', function(adminSnap) {
+      var adminData = adminSnap.val();
+
+      $('#club-admin-name').html(adminData.public.firstName + ' ' + adminData.public.lastName);
+    });
+  }
+
+  $('#num-members').html(counter + ' Members');
+
   if (!rendered) {
     rendered = true;
     $('#loading').addClass('hidden');
@@ -147,6 +173,13 @@ firebase.auth().onAuthStateChanged(function(user) {
       if (snap.val() === true) {
         // The user is a member / admin
         $('.btn-join-club').addClass('hidden');
+        db.ref('/clubs/' + clubId + '/clubAdmins/' + user.uid).once('value', function(snapshot) {
+          if (snapshot.val() === true) {
+            // This user is an admin
+            $('#warning-box').removeClass('hidden');
+            $('#warning-box span').html('<a class="btn btn-success" href="/approve.html?clubId=' + clubId + '">Approve New Registration Requests</a>');
+          }
+        });
       } else {
         db.ref('/requests').orderByChild('uid').equalTo(user.uid).on('child_added', function(snap) {
           $('.btn-join-club').addClass('hidden');

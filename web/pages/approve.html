@@ -47,7 +47,7 @@
 <div class="container">
   <section class="profile-section">
     <div class="row" style="font-size:1.2em">
-      <h2>Some Club</h2>
+      <h2 id="club-name">Some Club</h2>
       <hr>
       <table class="table table-striped">
         <thead>
@@ -57,12 +57,8 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Chloe Sanford</td>
-            <td>csanford@uwaterloo.ca</td>
-            <td><a class="btn btn-success">Approve</a><a class="btn btn-danger">Decline</a></td>
-          </tr>
+        <tbody id="request-table">
+
         </tbody>
       </table>
     </div>
@@ -75,6 +71,6 @@
 </div>
 <!-- /.container --> 
 
-<script src="/src/main.js"></script>
+<script src="/src/approve.js"></script>
 </body>
 </html>
