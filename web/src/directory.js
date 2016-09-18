@@ -24,6 +24,8 @@ var firebase = require('./init/firebase');
  </div>
  */
 
+var rendered = false;
+
 $(function() {
   $('#sign-out').click(function() {
     firebase.auth().signOut();
@@ -56,13 +58,18 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 var clubsRef = firebase.database().ref('/clubs').on('value', function(snap) {
   renderList(snap.val());
+  if (!rendered) {
+    rendered = true;
+    $('#loading').addClass('hidden');
+    $('#page-content').removeClass('hidden');
+  }
 });
 
 function renderBlock(club, clubId) {
   var block = '<div class="media">';
   block += '<div class="media-left media-top">';
 
-  var link = '/clubs.html?clubId=' + clubId;
+  var link = '/club.html?clubId=' + clubId;
   var clubInfo = club;
 
   block += '<a href="' + link + '">';
