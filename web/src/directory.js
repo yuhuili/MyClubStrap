@@ -79,7 +79,7 @@ function renderBlock(club, clubId) {
   block += '<div class="media-body">';
   block += '<h4 class="media-heading">' + clubInfo.clubName + '</h4>';
   block += '<span>' + clubInfo.shortDesc + '</span>';
-  block += '<a class="btn btn-default" href="' + link + '">Learn More</a>';
+  block += '<a class="btn btn-default btn-sm" style="margin-left:5px" href="' + link + '">Learn More</a>';
   block += '</div>';
   block += '</div>';
 
