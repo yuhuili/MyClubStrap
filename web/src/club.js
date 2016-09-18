@@ -105,7 +105,7 @@ function renderActivity(snap) {
     if (activities.hasOwnProperty(key)) {
       var activityData = activities[key];
 
-      domString += '<div class="row">';
+      domString += '<div class="row" style="margin-left: 0px;margin-right: 0px;">';
       domString += '<div class="event">';
       domString += '<div class="club-row"><span class="title">' + activityData.name + '</span></div>';
       domString += '<div class="club-row"><span class="date">' + activityData.date + '</span><span class="location pull-right">' + activityData.location + '</span></div>';

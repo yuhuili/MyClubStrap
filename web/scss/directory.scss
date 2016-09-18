@@ -21,14 +21,12 @@ body{
   font-size: 0.938em;
   display: block;
   height: 9em;
-  width: 80em;
-  border-bottom: 0.313em solid #c9c6c6;
-  border-top: 0.313em solid #c9c6c6;
-  border-right: 0.313em solid #c9c6c6;
-  border-left: 0.313em solid #c9c6c6;
   z-index: 99;
   background-color: whitesmoke;
   padding: 0.625em;
+  -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.2);
 }
 .media-heading {
   position : relative;
