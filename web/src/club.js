@@ -9,29 +9,46 @@ global.bootstrap = require('bootstrap');
 var firebase = require('./init/firebase');
 
 var db = firebase.database();
+var clubId = parse('clubId');
 
 $(document).ready(function() {
-  $(".show-map").click(function(e) {
-    $("#mapModal .modal-title").html($(this).data("title"));
-    $("#mapModal").modal();
-    var mapLat = $(this).data("lat");
-    var mapLng = $(this).data("lng");
-    var mapZoom = $(this).data("zoom");
-    var mapTitle = $(this).data("title");
-    
-    if (mapLoaded==true) {
-      initMap();
+
+  db.ref('/clubs/' + clubId).once('value', function(snapshot) {
+    if (!snapshot.val()) {
+
+      $('#loading').addClass('hidden');
+      $('#page-error').removeClass('hidden');
+      $('.text-warning').html("This club doesn't exist.");
+      $('#app-content-div').addClass('hidden');
+
+    } else {
+      $(".show-map").click(function(e) {
+        $("#mapModal .modal-title").html($(this).data("title"));
+        $("#mapModal").modal();
+        var mapLat = $(this).data("lat");
+        var mapLng = $(this).data("lng");
+        var mapZoom = $(this).data("zoom");
+        var mapTitle = $(this).data("title");
+
+        if (mapLoaded==true) {
+          initMap();
+        }
+
+        return false;
+      });
+
+      $('#join-button').click(function() {
+        joinClub();
+      });
+
+      var clubId = parse('clubId');
+
+      db.ref('/clubs/' + clubId)
+        .on('value', function(snap) {
+          renderSnapshot(snap);
+        });
     }
-    
-    return false;
   });
-
-  var clubId = parse('clubId');
-
-  db.ref('/clubs/' + clubId)
-    .on('value', function(snap) {
-      renderSnapshot(snap);
-    });
 
 });
 
@@ -83,6 +100,15 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     firebaseUser = user;
 
+    firebase.database().ref('/clubs/' + clubId + '/clubMembers/' + user.uid).once('value', function(snap) {
+      if (snap.val() === true) {
+        // The user is a member / admin
+        $('.btn-join-club').addClass('hidden');
+      } else {
+        $('.btn-join-club').removeClass('hidden');
+      }
+    });
+
     // Render User in the navbar
     // Fetch the user's profile information once
     firebase.database().ref('/users/' + user.uid + '/public').once('value')
@@ -90,8 +116,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         // Set the profile link to "Welcome " + firstName
         $('#profile-link').children('span').html('Welcome ' + snapshot.val().firstName);
 
-        $('#profile-link').parents().removeClass('hidden');
-        $('#sign-out').parents().removeClass('hidden');
+        $('#profile-link').parent().removeClass('hidden');
+        $('#sign-out').parent().removeClass('hidden');
         $('#sign-in-reg').addClass('hidden');
       });
   } else {
@@ -104,7 +130,18 @@ firebase.auth().onAuthStateChanged(function(user) {
 function joinClub() {
   if (firebaseUser) {
 
-  } else {
+    firebase.database().ref('/requests/').push({
+      uid: firebaseUser.uid,
+      clubId: clubId,
+      status: 'new'
+    });
 
+    $('#warning-box').removeClass('hidden');
+    $('#warning-box:first-child').html("Thank you for submitting a request to join this club! You'll receive a reply shortly");
+
+    var clubId = parse('clubId');
+  } else {
+    $('#warning-box').removeClass('hidden');
+    $('#warning-box:first-child').html('You must sign in / register to join a club.')
   }
 }
