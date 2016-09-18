@@ -8,17 +8,21 @@
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/carousel.css" />
   <link rel="stylesheet" href="/css/club.css" />
-  <link rel="stylesheet" href="/css/simple-sidebar.css" />
   <script>
     var mapLat, mapLng, mapZoom, mapLocTitle="";
     var mapLoaded = false;
   </script>
 </head>
-  <body>
+<body>
   
+  <div id="loading">
+    <img src="/img/loading.gif" alt="loading...">
+ </div>
+  
+  <div id="app-content-div" class="hidden">
     <div class="navbar-wrapper">
       <div class="container">
-  
+      
         <nav class="navbar navbar-inverse navbar-static-top">
           <div class="container">
             <div class="navbar-header">
@@ -52,10 +56,10 @@
             </div>
           </div>
         </nav>
-
+    
       </div>
     </div>
-    
+  
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -69,8 +73,8 @@
           <div class="image-holder" style="background-image: url(img/c1.jpg)"></div>
           <div class="container">
             <div class="carousel-caption">
-              <h1>Hack the North Club</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis finibus mi, non dignissim ex. Suspendisse feugiat rutrum nunc.</p>
+              <h1 id="club-name">Hack the North Club</h1>
+              <p id="club-short-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis finibus mi, non dignissim ex. Suspendisse feugiat rutrum nunc.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button" data-toggle="modal" data-target="#signupModal">Join</a></p>
             </div>
           </div>
@@ -79,8 +83,8 @@
           <div class="image-holder" style="background-image: url(img/c2.jpg)"></div>
           <div class="container">
             <div class="carousel-caption">
-              <h1>Engineering 5</h1>
-              <p>Hack the North has already started in E5 at University of Waterloo!</p>
+              <h1 id="carousel-heading">Engineering 5</h1>
+              <p id="carousel-text">Hack the North has already started in E5 at University of Waterloo!</p>
               <p><a class="btn btn-lg btn-primary" href="http://maps.google.com/?q=Engineering%205%20University%20Of%20Waterloo" role="button" target="_blank">See map</a></p>
             </div>
           </div>
@@ -95,19 +99,25 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
-    
+  
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-
+  
+    <div class="container hidden">
+      <div id="warning-text" class="jumbotron">
+        <span class="text-warning">ERROR</span>
+      </div>
+    </div>
+    
     <div class="container">
       <section class="club-section">
         <div class="row" style="font-size:1.2em">
-          <h2>Hack the North Club</h2>
+          <h2 id="club-name2">Hack the North Club</h2>
           <p><span class="club-short-info club-leader">John Doe</span><span class="club-short-info club-members">519 Members</span><span class="club-short-info club-location">Everywhere</span><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Join</a></p>
           <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis finibus mi, non dignissim ex. Suspendisse feugiat rutrum nunc, et tincidunt sapien condimentum ac. Morbi ut tortor at mi tincidunt pulvinar. Etiam pellentesque blandit luctus. Proin consequat orci id feugiat mollis. Sed ut purus odio. Sed eget erat a velit imperdiet luctus. Aliquam tempor et lacus iaculis pretium. Aenean a lectus pretium, venenatis diam non, dignissim sapien. Mauris laoreet porttitor pretium. Morbi venenatis vulputate nisi sit amet sodales. Integer sed lacus non ligula placerat maximus quis eu metus. Curabitur nec ultrices nunc. Vestibulum id fringilla orci, sed maximus nibh. Suspendisse laoreet suscipit quam non sodales.<br>
-  Donec velit eros, aliquam vitae massa vitae, dapibus hendrerit sem. Fusce sagittis ultrices eros, eleifend consectetur elit luctus eu. Fusce id felis rhoncus, elementum lectus sed, sagittis risus. Donec vitae mauris ut libero mattis pellentesque sed sed leo. Ut blandit sapien id tellus efficitur hendrerit. Suspendisse sollicitudin egestas lacus eget luctus. Cras eu mauris consectetur, congue erat sed, pharetra erat. Phasellus pellentesque sapien lorem, sed mollis erat bibendum vitae. Donec in turpis eget urna porta pellentesque sed rutrum augue. Curabitur volutpat tempus sem quis iaculis. Suspendisse vestibulum justo elit, vel placerat ligula laoreet ut. Integer tristique eros commodo ex tincidunt, eu egestas est condimentum. Proin mollis condimentum tempus. Quisque vel dui semper, tristique elit sit amet, rhoncus sapien. In hac habitasse platea dictumst. In sit amet auctor nunc.</p>
+          <p id="club-long-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis finibus mi, non dignissim ex. Suspendisse feugiat rutrum nunc, et tincidunt sapien condimentum ac. Morbi ut tortor at mi tincidunt pulvinar. Etiam pellentesque blandit luctus. Proin consequat orci id feugiat mollis. Sed ut purus odio. Sed eget erat a velit imperdiet luctus. Aliquam tempor et lacus iaculis pretium. Aenean a lectus pretium, venenatis diam non, dignissim sapien. Mauris laoreet porttitor pretium. Morbi venenatis vulputate nisi sit amet sodales. Integer sed lacus non ligula placerat maximus quis eu metus. Curabitur nec ultrices nunc. Vestibulum id fringilla orci, sed maximus nibh. Suspendisse laoreet suscipit quam non sodales.<br>
+            Donec velit eros, aliquam vitae massa vitae, dapibus hendrerit sem. Fusce sagittis ultrices eros, eleifend consectetur elit luctus eu. Fusce id felis rhoncus, elementum lectus sed, sagittis risus. Donec vitae mauris ut libero mattis pellentesque sed sed leo. Ut blandit sapien id tellus efficitur hendrerit. Suspendisse sollicitudin egestas lacus eget luctus. Cras eu mauris consectetur, congue erat sed, pharetra erat. Phasellus pellentesque sapien lorem, sed mollis erat bibendum vitae. Donec in turpis eget urna porta pellentesque sed rutrum augue. Curabitur volutpat tempus sem quis iaculis. Suspendisse vestibulum justo elit, vel placerat ligula laoreet ut. Integer tristique eros commodo ex tincidunt, eu egestas est condimentum. Proin mollis condimentum tempus. Quisque vel dui semper, tristique elit sit amet, rhoncus sapien. In hac habitasse platea dictumst. In sit amet auctor nunc.</p>
         </div>
         <div class="row" style="font-size:1.2em">
           <h3>Events</h3>
@@ -117,19 +127,19 @@
             <div class="club-row"><span class="date">September 16-18, 2016</span><span class="location">Engineering 5 at University of Waterloo</span></div>
           </div>
         </div>
-  
-      </section>
-        <!-- FOOTER -->
-        <footer>
-          <p class="pull-right"><a href="#">Back to top</a></p>
-          <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        </footer>
-      
-    </div><!-- /.container -->
     
+      </section>
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+  
+    </div><!-- /.container -->
+  
     <div id="signupModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
-    
+      
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
@@ -149,7 +159,7 @@
     </div>
     <div id="mapModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
-    
+      
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
@@ -158,30 +168,30 @@
           </div>
           <div class="modal-body">
             <script>
-            function initMap() {
-              mapLoaded = true;
+              function initMap() {
+                mapLoaded = true;
               
-              if (mapLat == null) return;
+                if (mapLat == null) return;
               
-              console.log("Loading google maps at "+mapLat+" by "+mapLng);
+                console.log("Loading google maps at "+mapLat+" by "+mapLng);
               
-              var myPos = {lat: parseFloat(mapLat), lng: parseFloat(mapLng)};
+                var myPos = {lat: parseFloat(mapLat), lng: parseFloat(mapLng)};
               
-              var mapDiv = document.getElementById('map');
-              var map = new google.maps.Map(mapDiv, {
+                var mapDiv = document.getElementById('map');
+                var map = new google.maps.Map(mapDiv, {
                   center: myPos,
                   zoom: parseFloat(mapZoom)
-              });
+                });
               
-              var marker = new google.maps.Marker({
-                position: myPos,
-                map: map,
-                title: mapLocTitle
-              });
-            }
+                var marker = new google.maps.Marker({
+                  position: myPos,
+                  map: map,
+                  title: mapLocTitle
+                });
+              }
             </script>
             <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpUXmINxGOgj9LHYfwxASzTEsnRDxRiR4&callback=initMap">
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpUXmINxGOgj9LHYfwxASzTEsnRDxRiR4&callback=initMap">
             </script>
             <div id="map" style="width:100%; height:400px"></div>
           </div>
@@ -192,8 +202,8 @@
     
       </div>
     </div>
+  </div>
       
-    <script src="/src/main.js"></script>
-    <script src="/src/club.js"></script>
-  </body>
+  <script src="/src/club.js"></script>
+</body>
 </html>

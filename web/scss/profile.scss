@@ -1,3 +1,40 @@
 
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
+html, body {
+  width:100%;
+  height:100%;
+}
+
+body{
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.45), 
+      rgba(255, 255, 255, 0.45)
+    ), url('/img/uw.jpg');
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+
+}
+
+#loading {
+  display: block;
+  text-align: center;
+}
+
+.profile-section {
+  padding: 1.5em 4em 3em 4em;
+  background: #FDFDFD;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.profile-section hr {
+  margin-top: 0;
+  border-top: 1.5px solid #e0e0e0;
+}
+
+section:first-of-type {
+  margin-top:8em;
+}
