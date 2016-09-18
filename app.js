@@ -30,6 +30,9 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+// Start a request handler
+// var requests = require('./requests');
+
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {

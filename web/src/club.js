@@ -47,6 +47,10 @@ $(document).ready(function() {
         .on('value', function(snap) {
           renderSnapshot(snap);
         });
+
+      db.ref('/activities/' + clubId).on('value', function(snapshot) {
+        renderActivity(snapshot);
+      });
     }
   });
 
@@ -77,6 +81,43 @@ function renderSnapshot(snap) {
     $('#loading').addClass('hidden');
     $('#app-content-div').removeClass('hidden');
   }
+
+}
+
+/*
+
+ <div class="row">
+ <div class="event">
+ <div class="club-row"><span class="title">Hack the North 2016</span><a href="#" class="show-map" style="width:20px;height:20px; display:inline-block; margin-left:10px; background-image:url('/img/marker.png'); background-size:contain; background-position:left top; background-repeat:no-repeat; cursor:pointer" data-lat="43.472975" data-lng="-80.540050" data-zoom="17" data-title="Hack the North 2016"></a></div>
+ <div class="club-row"><span class="date">September 16-18, 2016</span><span class="location pull-right">Engineering 5 at University of Waterloo</span></div>
+ <div class="club-row"><span class="event-field">We're having a hacking session at E5 fam get over here! Bro like you don't even get it this is gonna be so fucking lit G.</span></div>
+ </div>
+ </div>
+
+
+ */
+
+function renderActivity(snap) {
+  var activities = snap.val();
+
+  var domString = '<h3>Events</h3><hr>';
+  for (var key in activities) {
+    if (activities.hasOwnProperty(key)) {
+      var activityData = activities[key];
+
+      domString += '<div class="row">';
+      domString += '<div class="event">';
+      domString += '<div class="club-row"><span class="title">' + activityData.name + '</span></div>';
+      domString += '<div class="club-row"><span class="date">' + activityData.date + '</span><span class="location pull-right">' + activityData.location + '</span></div>';
+      domString += '<div class="club-row"><span class="event-field">' + activityData.longDesc + '</span></div>';
+      domString += '</div>';
+      domString += '</div>';
+
+    }
+
+  }
+
+  $('#event-list').html(domString);
 
 }
 
