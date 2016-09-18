@@ -50,6 +50,8 @@ $(document).ready(function() {
     }
   });
 
+  $('#sign-out').click(function() { firebase.auth().signOut(); })
+
 });
 
 var rendered = false;
@@ -100,18 +102,23 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     firebaseUser = user;
 
-    firebase.database().ref('/clubs/' + clubId + '/clubMembers/' + user.uid).once('value', function(snap) {
+    db.ref('/clubs/' + clubId + '/clubMembers/' + user.uid).once('value', function(snap) {
       if (snap.val() === true) {
         // The user is a member / admin
         $('.btn-join-club').addClass('hidden');
       } else {
+        db.ref('/requests').orderByChild('uid').equalTo(user.uid).on('child_added', function(snap) {
+          $('.btn-join-club').addClass('hidden');
+          $('#warning-box').removeClass('hidden');
+          $('.text-warning').html("Your request to join this club is pending.");
+        });
         $('.btn-join-club').removeClass('hidden');
       }
     });
 
     // Render User in the navbar
     // Fetch the user's profile information once
-    firebase.database().ref('/users/' + user.uid + '/public').once('value')
+    db.ref('/users/' + user.uid + '/public').once('value')
       .then(function(snapshot) {
         // Set the profile link to "Welcome " + firstName
         $('#profile-link').children('span').html('Welcome ' + snapshot.val().firstName);
@@ -130,18 +137,19 @@ firebase.auth().onAuthStateChanged(function(user) {
 function joinClub() {
   if (firebaseUser) {
 
-    firebase.database().ref('/requests/').push({
+    clubId = parse('clubId');
+
+    db.ref('/requests/').push({
       uid: firebaseUser.uid,
       clubId: clubId,
       status: 'new'
     });
 
     $('#warning-box').removeClass('hidden');
-    $('#warning-box:first-child').html("Thank you for submitting a request to join this club! You'll receive a reply shortly");
+    $('.text-warning').html("Thank you for submitting a request to join this club! You'll receive a reply shortly.");
 
-    var clubId = parse('clubId');
   } else {
     $('#warning-box').removeClass('hidden');
-    $('#warning-box:first-child').html('You must sign in / register to join a club.')
+    $('.text-warning').html('You must sign in / register to join a club.')
   }
 }
