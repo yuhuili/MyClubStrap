@@ -47,3 +47,6 @@ build/*.html
 
 # Firebase Token Redaction
 web/src/init/firebase.js
+
+# Send Grid Token Redaction
+bin/sendgridInit.js

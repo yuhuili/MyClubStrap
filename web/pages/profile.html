@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="/css/profile.css" />
 </head>
 <body>
+
+<div id="loading">
+  <img src="/img/loading.gif" />
+</div>
+
+<div id="app-content-div" class="hidden">
 <div class="navbar-wrapper">
   <div class="container">
     <nav class="navbar navbar-inverse navbar-static-top">
@@ -20,8 +26,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-            <li><a href="clubs.html">Clubs</a></li>
-            <li><a href="events.html">Events</a></li>
+            <li><a href="Directory.html">Clubs</a></li>
             <li><a href="about.html">About</a></li>
             <li class="hidden"><a id="profile-link" href="profile.html"><img width="25px" height="25px" src="/img/profile-default.svg"><span>Welcome Gabriel!</span></a></li>
             <li class="hidden"><a id="sign-out" href="#">Sign Out</a></li>
@@ -42,122 +47,34 @@
 </div>
 
 <!-- Marketing messaging and featurettes
-    ================================================== --> 
+    ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
 
 <div class="container">
   <section class="profile-section">
     <div class="row" style="font-size:1.2em">
-      <h2>John Doe</h2>
+      <h2 id="user-fullname">John Doe</h2>
       <hr>
-      <form class="form-horizontal" style="margin-top:50px">
-        <fieldset>
-          
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="reg-school-email">School Email</label>
-            <div class="col-md-4">
-              <input id="reg-school-email" name="reg-school-email" type="text" placeholder="email@uwaterloo.ca" class="form-control input-md" required="">
-            </div>
-          </div>
-          
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="reg-pref-email">Personal Email</label>
-            <div class="col-md-4">
-              <input id="reg-pref-email" name="reg-pref-email" type="text" placeholder="john@gmail.com" class="form-control input-md" required="">
-            </div>
-          </div>
-          
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="reg-first-name">First Name</label>
-            <div class="col-md-4">
-              <input id="reg-first-name" name="reg-first-name" type="text" placeholder="John" class="form-control input-md">
-            </div>
-          </div>
-          
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="reg-last-name">Last Name</label>
-            <div class="col-md-4">
-              <input id="reg-last-name" name="reg-last-name" type="text" placeholder="Smith" class="form-control input-md">
-            </div>
-          </div>
-          
-          <!-- Button -->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="submit"></label>
-            <div class="col-md-4">
-              <button id="submit" name="submit" class="btn btn-success">Update</button>
-            </div>
-          </div>
-        </fieldset>
-      </form>
-      <form class="form-horizontal" style="margin-top:30px">
-        <fieldset>
-          
-          <!-- Password input-->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="passwordinput">Old Password</label>
-            <div class="col-md-4">
-              <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md" required="">
-            </div>
-          </div>
-          
-          <!-- Password input-->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="new-pass">New password</label>
-            <div class="col-md-4">
-              <input id="new-pass" name="new-pass" type="password" placeholder="" class="form-control input-md" required="">
-            </div>
-          </div>
-          
-          <!-- Password input-->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="new-pass-again">New password again</label>
-            <div class="col-md-4">
-              <input id="new-pass-again" name="new-pass-again" type="password" placeholder="" class="form-control input-md" required="">
-            </div>
-          </div>
-          
-          <!-- Button -->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="submit"></label>
-            <div class="col-md-4">
-              <button id="submit" name="submit" class="btn btn-success">Update</button>
-            </div>
-          </div>
-        </fieldset>
-      </form>
       <h3>Clubs I am in</h3>
       <hr>
       <table class="table table-striped">
         <thead>
           <tr>
             <th>Club name</th>
-            <th>President</th>
-            <th>Email</th>
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="profile-table">
           <tr>
             <td><a href="/club.html">Hack the North Club</a></td>
-            <td>John Doe</td>
-            <td>john@example.com</td>
             <td><a class="btn btn-danger">Quit</a></td>
           </tr>
           <tr>
             <td><a href="/club.html">Hack the South Club</a></td>
-            <td>Jane Doe</td>
-            <td>jane@example.com</td>
             <td><a class="btn btn-danger">Quit</a></td>
           </tr>
           <tr>
             <td><a href="/club.html">Hack Everywhere Club</a></td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
             <td><a class="btn btn-danger">Quit</a></td>
           </tr>
         </tbody>
@@ -171,7 +88,7 @@
   </footer>
 </div>
 <!-- /.container --> 
-
-<script src="/src/main.js"></script>
+</div>
+<script src="/src/profile.js"></script>
 </body>
 </html>

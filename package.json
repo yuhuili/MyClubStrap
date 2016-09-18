@@ -38,6 +38,7 @@
     "firebase": "^3.4.0",
     "morgan": "^1.7.0",
     "nodemailer": "^2.6.0",
+    "sendgrid": "^4.3.0",
     "serve-favicon": "^2.3.0"
   }
 }

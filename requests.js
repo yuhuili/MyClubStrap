@@ -3,13 +3,14 @@
  */
 
 var firebase = require('./web/src/init/firebase');
-var nodemailer = require('nodemailer');
+
+var sendGridKey = require('./bin/sendgridInit');
+var sendGrid = require('sendgrid')(sendGridKey);
+var helper = require('sendgrid').mail;
 
 var db = firebase.database();
 
-var transporter = nodemailer.createTransport('smtps://alacchi.g%40gmail.com:pass@smtp.gmail.com');
-
-var from = 'Clubify System: <alacchi.g@gmail.com>';
+const from = 'clubify@sendgrid.com';
 
 db.ref('requests')
   .on('child_added', function(snapshot) {
@@ -95,27 +96,29 @@ function finalizeStatusNew(request, admins, user) {
     var body = user.fullname + ' has requested to join ' + snapshot.val().clubName + '.';
     body += ' To accept, please confirm at the following link http://localhost:3000/AdminDecision.html?requestId=' + request.requestId;
 
-    var mailList = admins.map(function(admin) { return admin.email; }).join(',');
+    var mail = new helper.Mail();
+    var email = new helper.Email(from, 'Clubify System');
 
-    var mailOptions = {
-      from: from,
-      to: mailList,
-      subject: 'New club join request from ' + user.fullname,
-      text: body
-    };
-
-    transporter.sendMail(mailOptions, function(error, info) {
-      if (error) {
-        console.log(error);
-        return;
-      }
-
-      console.log('Message sent: ' + info.response);
-
-      db.ref('requests/' + request.id + '/status')
-        .set('pending');
-
+    var personalization = new helper.Personalization();
+    admins.forEach(function(admin) {
+      personalization.addTo(new helper.Email(admin.email, admin.fullname));
     });
+    mail.addPersonalization(personalization);
+
+    var content = new helper.Content('text/plain', body);
+    mail.addContent(content);
+
+    mail.setFrom(email);
+    mail.setSubject('Hello World from the SendGrid Node.js Library');
+
+    var sgRequest = sendGrid.emptyRequest({
+      method: 'POST',
+      path: '/v3/mail/send',
+      body: mail.toJSON()
+    });
+
+    db.ref('requests/' + request.requestId + '/status')
+      .set('pending');
 
   });
 

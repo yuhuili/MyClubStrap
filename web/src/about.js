@@ -5,3 +5,8 @@ var $;
 global.jQuery = $ = require('jquery');
 
 global.bootstrap = require('bootstrap');
+
+var firebase = require('./init/firebase');
+var navbar = require('./init/navbar');
+
+navbar(firebase);

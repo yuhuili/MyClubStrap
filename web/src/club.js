@@ -166,12 +166,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         $('#profile-link').parent().removeClass('hidden');
         $('#sign-out').parent().removeClass('hidden');
-        $('#sign-in-reg').addClass('hidden');
       });
   } else {
     $('#profile-link').addClass('hidden');
     $('#sign-out').addClass('hidden');
     $('#sign-in-reg').removeClass('hidden');
+    $('.btn-join-club').addClass('hidden');
   }
 });
 
