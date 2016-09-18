@@ -1,10 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>UWaterloo</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTN Club</title>
+<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/carousel.css" />
+<link rel="stylesheet" href="/css/profile.css" />
 </head>
 <body>
-  
+<div class="navbar-wrapper">
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="#">UWaterloo Clubs</a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="clubs.html">Clubs</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="hidden"><a id="profile-link" href="profile.html"><img width="25px" height="25px" src="/img/profile-default.svg"><span>Welcome Gabriel!</span></a></li>
+            <li class="hidden"><a id="sign-out" href="#">Sign Out</a></li>
+            <li id="sign-in-reg"><a href="LoginPage.html">Sign In / Register</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">UW Links <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="https://uwaterloo.ca">University of Waterloo</a></li>
+                <li><a href="http://feds.ca">Feds</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- Marketing messaging and featurettes
+    ================================================== --> 
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container">
+  <section class="profile-section">
+    <div class="row" style="font-size:1.2em">
+      <h2>John Doe</h2>
+      <hr>
+      <form class="form-horizontal" style="margin-top:50px">
+        <fieldset>
+          
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="reg-school-email">School Email</label>
+            <div class="col-md-4">
+              <input id="reg-school-email" name="reg-school-email" type="text" placeholder="email@uwaterloo.ca" class="form-control input-md" required="">
+            </div>
+          </div>
+          
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="reg-pref-email">Personal Email</label>
+            <div class="col-md-4">
+              <input id="reg-pref-email" name="reg-pref-email" type="text" placeholder="john@gmail.com" class="form-control input-md" required="">
+            </div>
+          </div>
+          
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="reg-first-name">First Name</label>
+            <div class="col-md-4">
+              <input id="reg-first-name" name="reg-first-name" type="text" placeholder="John" class="form-control input-md">
+            </div>
+          </div>
+          
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="reg-last-name">Last Name</label>
+            <div class="col-md-4">
+              <input id="reg-last-name" name="reg-last-name" type="text" placeholder="Smith" class="form-control input-md">
+            </div>
+          </div>
+          
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="submit"></label>
+            <div class="col-md-4">
+              <button id="submit" name="submit" class="btn btn-success">Update</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <form class="form-horizontal" style="margin-top:30px">
+        <fieldset>
+          
+          <!-- Password input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="passwordinput">Old Password</label>
+            <div class="col-md-4">
+              <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md" required="">
+            </div>
+          </div>
+          
+          <!-- Password input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="new-pass">New password</label>
+            <div class="col-md-4">
+              <input id="new-pass" name="new-pass" type="password" placeholder="" class="form-control input-md" required="">
+            </div>
+          </div>
+          
+          <!-- Password input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="new-pass-again">New password again</label>
+            <div class="col-md-4">
+              <input id="new-pass-again" name="new-pass-again" type="password" placeholder="" class="form-control input-md" required="">
+            </div>
+          </div>
+          
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="submit"></label>
+            <div class="col-md-4">
+              <button id="submit" name="submit" class="btn btn-success">Update</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <h3>Clubs I am in</h3>
+      <hr>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Club name</th>
+            <th>President</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/club.html">Hack the North Club</a></td>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td><a class="btn btn-danger">Quit</a></td>
+          </tr>
+          <tr>
+            <td><a href="/club.html">Hack the South Club</a></td>
+            <td>Jane Doe</td>
+            <td>jane@example.com</td>
+            <td><a class="btn btn-danger">Quit</a></td>
+          </tr>
+          <tr>
+            <td><a href="/club.html">Hack Everywhere Club</a></td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+            <td><a class="btn btn-danger">Quit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+</div>
+<!-- /.container --> 
+
+<script src="/src/main.js"></script>
 </body>
 </html>
