@@ -182,9 +182,11 @@ firebase.auth().onAuthStateChanged(function(user) {
         });
       } else {
         db.ref('/requests').orderByChild('uid').equalTo(user.uid).on('child_added', function(snap) {
-          $('.btn-join-club').addClass('hidden');
-          $('#warning-box').removeClass('hidden');
-          $('.text-warning').html("Your request to join this club is pending.");
+          if (snap.val().clubId === clubId && snap.val().status === 'new') {
+            $('.btn-join-club').addClass('hidden');
+            $('#warning-box').removeClass('hidden');
+            $('.text-warning').html("Your request to join this club is pending.");
+          }
         });
         $('.btn-join-club').removeClass('hidden');
       }
@@ -199,6 +201,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         $('#profile-link').parent().removeClass('hidden');
         $('#sign-out').parent().removeClass('hidden');
+        $('#sign-in-reg').addClass('hidden');
       });
   } else {
     $('#profile-link').addClass('hidden');
