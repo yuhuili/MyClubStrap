@@ -5,6 +5,13 @@
 var $ = require('jquery');
 
 module.exports = function(firebase) {
+
+  $(function() {
+    $('#sign-out').click(function() {
+      firebase.auth().signOut();
+    })
+  });
+
   firebase.auth().onAuthStateChanged(function (user) {
     if (user && user.emailVerified) {
       // Render User in the navbar
