@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "gulp build-if-dev",
+    "postinstall": "/bin/bash -c \"if [ ! -z $(which gulp)]; then gulp build-if-dev; fi\"",
     "prepublish": "gulp production"
   },
   "repository": {
