@@ -1,0 +1,9 @@
+# The pre-build folder (not necessary in production)
+web
+
+# Jetbrains
+.idea/
+
+gulpfile.js
+webpack.config.js
+README.md
