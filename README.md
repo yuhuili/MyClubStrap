@@ -1,25 +1,27 @@
-# fullstack-boilerplate
-Boilerplate for developing with and express backend and webpack bundler with gulp for the frontend.
+# My Club Strap
+We are bringing your student life and involvement online!
 
-# Installation
-<ul>
-    <li>Clone/Download/Fork this repository</li>
-    <li>npm install</li>
-    <li>npm start</li>
-</ul>
+**My Club Strap** is my Hack the North 2016 project with Gabriel Alacchi and Edward Son. See more on [Devpost](https://devpost.com/software/my-club-strap).
 
-# Basic Usage
-Run `npm start` to start the express server then `gulp` to start file watching and browserSync.
+![My Club Strap](https://github.com/yuhuili/MyClubStrap/raw/master/GitHubScreenshots/HTN1.png)
 
-# Gulp Tasks
-<ul>
-    <li>gulp bundle: Bundles the javascript in web/src directory and outputs it into build/src.</li>
-    <li>gulp style: Compiles the scss from web/scss to build/css.</li>
-    <li>gulp images: Runs imagemin on the images in web/images and outputs them to build.</li>
-    <li>gulp html: Outputs the html from web/pages to build.</li>
-    <li>gulp watch: Start up browserSync and synchronizes the scss, html, js and images.</li>
-    <li>gulp build: Performs all build tasks: bundle, style, images and html.</li>
-    <li>gulp as-prod: Sets the gulp environment to production. Using this before gulp build will cause a production build. This will minify js and css.</li>
-    <li>gulp production: Performs all build tasks in production mode. Equivalent to gulp as-prod build.</li>
-    <li>gulp build-if-dev: Will run a build, used specifically to avoid building in a production environment (NODE_ENV=production).</li>
-</ul>
+## Inspiration
+Club registration at McGill and Waterloo is a hassle. There is not a central platform for students to sign up and for clubs to manage their members.
+
+## What it does
+**My Club Strap** allows students to join clubs in their school and to browse events happening in the school.
+
+## How we built it
+We used bootstrap and JQuery for UI, Firebase for database and user authentication.
+
+## Challenges we ran into
+Firebase rules were difficult to deal with because of its steep learning rules. Also we had to keep pages organized and to have a smooth overall feel.
+
+## Accomplishments that we're proud of
+The design looks amazing. We managed to get many core features done that are essential to a club registration system.
+
+## What we learned
+We learned to collaborate in a team to work on different parts of the project, as well as different technologies.
+
+## What's next for My Club Strap
+We need a richer environment for admin to manage the clubs, an access portal for sponsors.
