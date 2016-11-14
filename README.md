@@ -1,7 +1,7 @@
 # My Club Strap
 We are bringing your student life and involvement online!
 
-**My Club Strap** is a Hack the North 2016 project created by ![Yuhui Li](https://githubtools.yuhuili.com/kagami/yuhuili/Yuhui%20Li/) ![Gabriel Alacchi](https://githubtools.yuhuili.com/kagami/GabrielAlacchi/Gabriel%20Alacchi) ![Edward Son](https://githubtools.yuhuili.com/kagami/Edward-Son/Edward%20Son/)
+**My Club Strap** is a Hack the North 2016 project created by ![Yuhui Li](https://githubtools.yuhuili.com/kagami/yuhuili/Yuhui%20Li/) ![Gabriel Alacchi](https://githubtools.yuhuili.com/kagami/GabrielAlacchi/Gabriel%20Alacchi) ![Edward Son](https://githubtools.yuhuili.com/kagami/Edward-Son/Edward%20Son)
 
 ![My Club Strap](https://github.com/yuhuili/MyClubStrap/raw/master/GitHubScreenshots/HTN1.png)
 
